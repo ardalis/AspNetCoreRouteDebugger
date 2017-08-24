@@ -1,5 +1,5 @@
 # AspNetCoreRouteDebugger
-An ASP.NET Core Route Debugger implemented as a Razor Page.
+An ASP.NET Core Route Debugger implemented as a Razor Page. Read more about [Debugging ASP.NET Core Routes](https://ardalis.com/debugging-aspnet-core-routes).
 
 ## Sample
 
