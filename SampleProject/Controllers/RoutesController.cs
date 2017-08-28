@@ -21,8 +21,8 @@ namespace RouteDebugging.Controllers
             var routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.Select(x => new {
                 Action = x.RouteValues["Action"],
                 Controller = x.RouteValues["Controller"],
-                Name = x.AttributeRouteInfo.Name,
-                Template = x.AttributeRouteInfo.Template,
+                Name = x.AttributeRouteInfo?.Name,
+                Template = x.AttributeRouteInfo?.Template,
                 Contraint = x.ActionConstraints
             }).ToList();
             return Ok (routes);
