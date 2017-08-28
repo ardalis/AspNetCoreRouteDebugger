@@ -11,7 +11,7 @@ Grab the two files from the RouteDebuggerPage folder. Drop them into a Pages fol
 
 ### I'm Not Using Razor Pages!
 
-Grab the Routes2Controller.cs file, which currently returns JSON. Write a simple page that consumes the JSON (via an API call), or modify the Routes.cshtml file to be a view and have the controller return a view instead. Pull requests accepted if someone wants to make this a bit cleaner.
+Grab the [Routes2Controller.cs](/SampleProject/Controllers/RoutesController.cs) file, which currently returns JSON. Write a simple page that consumes the JSON (via an API call), or modify the Routes.cshtml file to be a view and have the controller return a view instead. Pull requests accepted if someone wants to make this a bit cleaner.
 
 #### Original Idea
 
