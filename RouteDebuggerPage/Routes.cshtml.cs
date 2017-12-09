@@ -22,7 +22,6 @@ namespace RouteDebugging.Pages
 
         public void OnGet()
         {
-            IActionConstraintMetadata foo;
             Routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items
                     .Select(x => new RouteInfo {
                 Action = x.RouteValues["Action"],
