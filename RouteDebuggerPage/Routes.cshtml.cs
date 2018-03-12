@@ -26,8 +26,8 @@ namespace RouteDebugging.Pages
                     .Select(x => new RouteInfo {
                 Action = x.RouteValues["Action"],
                 Controller = x.RouteValues["Controller"],
-                Name = x.AttributeRouteInfo.Name,
-                Template = x.AttributeRouteInfo.Template,
+                Name = x.AttributeRouteInfo?.Name,
+                Template = x.AttributeRouteInfo?.Template,
                 Constraint = x.ActionConstraints == null ? "" : JsonConvert.SerializeObject(x.ActionConstraints)
             })
                 .OrderBy(r => r.Template)
