@@ -24,7 +24,7 @@ namespace RouteDebugging.Controllers
                 Name = x.AttributeRouteInfo?.Name,
                 Template = x.AttributeRouteInfo?.Template,
                 Contraint = x.ActionConstraints
-            }).ToList();
+            }).OrderBy(x => x.Controller).ToList();
             return Ok (routes);
         }
     }
