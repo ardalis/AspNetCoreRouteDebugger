@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Text.Json;
 
 namespace RouteDebugging.Controllers
 {
@@ -25,7 +26,10 @@ namespace RouteDebugging.Controllers
                 Template = x.AttributeRouteInfo?.Template,
                 Contraint = x.ActionConstraints
             }).ToList();
-            return Ok (routes);
+            return Json(routes, new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            });
         }
     }
 }
