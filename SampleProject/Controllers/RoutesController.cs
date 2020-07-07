@@ -20,12 +20,18 @@ namespace RouteDebugging.Controllers
         public IActionResult Index()
         {
             var routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.Select(x => new {
-                Action = x.RouteValues["Action"],
-                Controller = x.RouteValues["Controller"],
-                Name = x.AttributeRouteInfo?.Name,
-                Template = x.AttributeRouteInfo?.Template,
-                Contraint = x.ActionConstraints
-            }).ToList();
+                    Controller = x.RouteValues["Controller"],
+                    Action = x.RouteValues["Action"],
+                    Parameters = x.Parameters.Select(param => new
+                    {
+                        Name = param.Name,
+                        Type = param.ParameterType.Name,
+                    }),
+                    Template = x.AttributeRouteInfo?.Template,
+                    Name = x.AttributeRouteInfo?.Name,
+                    Contraint = x.ActionConstraints,
+                }).OrderBy(x => x.Controller).ToList();
+
             return Json(routes, new JsonSerializerOptions
             {
                 WriteIndented = true,
