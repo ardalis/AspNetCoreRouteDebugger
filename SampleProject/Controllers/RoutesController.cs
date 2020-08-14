@@ -1,6 +1,8 @@
-﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 
 namespace RouteDebugging.Controllers
@@ -29,7 +31,7 @@ namespace RouteDebugging.Controllers
                     }),
                     Template = x.AttributeRouteInfo?.Template,
                     Name = x.AttributeRouteInfo?.Name,
-                    Contraint = x.ActionConstraints,
+                    HttpMethods = string.Join(", ", x.ActionConstraints?.OfType<HttpMethodActionConstraint>().First().HttpMethods ?? new List<string>()),
                 }).OrderBy(x => x.Controller).ToList();
 
             return Json(routes, new JsonSerializerOptions
