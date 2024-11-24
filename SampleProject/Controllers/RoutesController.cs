@@ -13,7 +13,7 @@ namespace RouteDebugging.Controllers
     {
         private readonly IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
 
-        public Routes2Controller(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
+        public RoutesController(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
         }
