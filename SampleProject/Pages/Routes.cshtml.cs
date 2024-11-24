@@ -18,7 +18,6 @@ public class RoutesModel : PageModel
 
     public void OnGet()
     {
-        // DisplayName
         var PageRoutes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.OfType<PageActionDescriptor>()
                 .Select(x => new RouteInfo
                 {
@@ -29,8 +28,7 @@ public class RoutesModel : PageModel
                     Constraint = x.ActionConstraints == null ? "" : JsonSerializer.Serialize(x.ActionConstraints),
                     RouteValues = string.Join(',', x.RouteValues)
                 })
-            .OrderBy(r => r.Template)
-            .ToList();
+            .OrderBy(r => r.Template);
 
         var ViewRoutes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.OfType<ControllerActionDescriptor>()
                 .Select(x => new RouteInfo
@@ -41,8 +39,7 @@ public class RoutesModel : PageModel
                     Template = x.AttributeRouteInfo?.Template,
                     Constraint = x.ActionConstraints == null ? "" : JsonSerializer.Serialize(x.ActionConstraints),
                 })
-            .OrderBy(r => r.Template)
-            .ToList();
+            .OrderBy(r => r.Template);
 
         Routes = PageRoutes.Concat(ViewRoutes).ToList();
     }
